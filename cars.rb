@@ -1,12 +1,20 @@
 class Car
-	def to_s()
-		"I'm a car! I've driven #{@distance} and have #{@fuel} gallons gas left"
+@@total_car_count = 0
+
+	def self.total_car_count #
+		@@total_car_count 
 	end
 
 	def initialize()
 		@fuel = 10
 		@distance = 0
+		@@total_car_count +=1
 	end
+
+	def to_s()
+		"I'm a car! I've driven #{@distance} and have #{@fuel} gallons gas left"
+	end
+
 
 	def drive(miles)
 		if (@fuel - miles/20.0) >= 0
@@ -37,3 +45,5 @@ car_a.drive(232)
 car_b.drive(117)
 puts car_a
 puts car_b
+
+puts Car.total_car_count
